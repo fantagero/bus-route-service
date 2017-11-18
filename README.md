@@ -3,13 +3,13 @@
 # between 2 stations in any of provided routs
 
 # Command to build out application .jar file
-./gradlew clean build 
+./service.sh local_build
 
 # Command to run application
-java -jar build/libs/bus-route-service-0.1.0.jar --routes.file={provide_path_to_initial_routs_data}
+./service.sh local_run {provide_path_to_initial_routs_data}
 
 # Command packages application into a docker image
-./gradlew build buildDocker
+./service.sh docker_build {provide_path_to_initial_routs_data}
 
 # Command runs application using a docker image
-docker run -p 8088:8088 -t goeuro/bus-route-service --routes.file={provide_path_to_initial_routs_data}
+./service.sh docker_run
