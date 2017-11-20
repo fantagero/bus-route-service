@@ -6,7 +6,7 @@ DOCKER_EXPOSE_PORT="8088:8088"
 
 DOCKER_IMAGE_LABEL="goeuro/bus-route-service"
 
-INPUT_DATA_FILE="$DIR/build/resources/main/bus_route_data_file.csv"
+INPUT_DATA_FILE="$DIR/src/main/resources/bus_route_data_file.csv"
 
 DOCKER_INPUT_DATA_FILE="/root/bus_route_data_file.csv"
 
