@@ -4,9 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
-/**
- *
- */
 @JsonSerialize
 @Data
 public class DirectRouteResponseDTO {

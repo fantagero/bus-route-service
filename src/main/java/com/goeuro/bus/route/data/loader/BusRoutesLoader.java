@@ -33,7 +33,7 @@ public class BusRoutesLoader {
     @Autowired
     private DirectRoutesHolder directRoutesProvider;
 
-    public DirectRoutesHolder initRoutesFromInput(final String routesFile) {
+    public void initRoutesFromInput(final String routesFile) {
         LOGGER.info("Started routs loading from data file");
 
         if(routesFile == null || routesFile.isEmpty()) {
@@ -66,7 +66,6 @@ public class BusRoutesLoader {
         }
 
         LOGGER.info("Finished routs loading from data file");
-        return busRoutes;
     }
 
     private static Stream<StationsPair> processPairs(Integer stationId, Integer[] stationIds) {

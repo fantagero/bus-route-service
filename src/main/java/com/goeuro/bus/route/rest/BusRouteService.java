@@ -3,6 +3,7 @@ package com.goeuro.bus.route.rest;
 import com.goeuro.bus.route.data.DirectRoutesHolder;
 import com.goeuro.bus.route.dto.BusRouteServiceURLs;
 import com.goeuro.bus.route.dto.DirectRouteResponseDTO;
+import com.goeuro.bus.route.dto.builder.DirectRouteResponseDTOBuilder;
 import com.goeuro.bus.route.exception.ErrorMessageKeys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,10 +38,11 @@ public class BusRouteService {
             @RequestParam(value = "arr_sid") Integer arrivalSid) {
         LOGGER.debug("Direct route GET request has been received for departure sid = {} and arrival sid = {}", departureSid, arrivalSid);
 
-        DirectRouteResponseDTO directRouteResponse = new DirectRouteResponseDTO();
-        directRouteResponse.setDepartureSid(departureSid);
-        directRouteResponse.setArrivalSid(arrivalSid);
-        directRouteResponse.setDirectBusRoute(directRoutesProvider.directRouteExists(departureSid, arrivalSid));
+        DirectRouteResponseDTO directRouteResponse = DirectRouteResponseDTOBuilder.getBuilder()
+                .departureSid(departureSid)
+                .arrivalSid(arrivalSid)
+                .directBusRoute(directRoutesProvider.directRouteExists(departureSid, arrivalSid))
+                .build();
 
         LOGGER.debug("Returning response for Direct Route GET request for departure sid = {} and arrival sid = {} : {}", directRouteResponse);
         return new ResponseEntity<>(directRouteResponse, HttpStatus.OK);

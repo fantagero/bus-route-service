@@ -3,10 +3,10 @@
 # between 2 stations in any of provided routs
 
 # Command to build out application .jar file
-./service.sh local_build
+./service.sh dev_build
 
 # Command to run application
-./service.sh local_run {provide_path_to_initial_routs_data}
+./service.sh dev_run {provide_path_to_initial_routs_data}
 
 # Command packages application into a docker image
 ./service.sh docker_build {provide_path_to_initial_routs_data}

@@ -15,7 +15,7 @@ dev_build() {
     ./gradlew clean build
 }
 
-# runs application lacaly
+# runs application locally
 dev_run() {
     if ["$2"]; then
         echo "Path to data file not provided default one will be used"
@@ -32,7 +32,7 @@ docker_build() {
     else
         $INPUT_DATA_FILE=$2
     fi
-    ./gradlew build buildDocker -DdataFileDockerPath=$INPUT_DATA_FILE
+    ./gradlew clean build buildDocker -DdataFileDockerPath=$INPUT_DATA_FILE
 }
 
 # runs docker image
